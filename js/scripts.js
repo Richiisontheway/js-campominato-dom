@@ -1,6 +1,5 @@
 const buttonPlay = document.getElementById('play');
 
-
 let existence = false;
 
 const numberBomb = [];
@@ -27,9 +26,12 @@ buttonPlay.addEventListener('click',function(){
             //console.log('bomb',bomb);
             foundInArray = numberBomb.includes(bomb);
         }
+
         numberBomb.push(bomb);
         console.log(numberBomb);
+
     };
+
     if(existence){
         
         existence = false;
@@ -56,23 +58,28 @@ buttonPlay.addEventListener('click',function(){
                 
                 console.log('punteggio',counter,typeof counter);
                 
-                //console.log(this);
-
-                
+                console.log(this, typeof this);
 
                 //console.log(this.innerHTML)
                 
                 if(numberBomb.includes(i)){
 
-                    alert("hai perso");
+                    alert("hai perso" + " il tuo pu nteggio é " + counter);
                     this.classList.add('bomb');
-    
+                    document.getElementById('main-container').innerHTML += '' 
+
+                }
+                else if(counter==(diff - numberBomb.length)){
+                    
+                    alert('hai vinto' + ' il tuo punteggio è ' + counter);
+                    document.getElementById('main-container').innerHTML += ''
+                    
                 }
                 else{
+
                     counter++
                     this.classList.add('continua');
-                    //alert("continua");
-                    
+
                 }
 
         });
