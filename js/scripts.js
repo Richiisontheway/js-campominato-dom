@@ -4,7 +4,7 @@ let existence = false;
 
 const numberBomb = [];
 
-let counter = 0
+let counter = 1
 
 buttonPlay.addEventListener('click',function(){
     
@@ -53,9 +53,9 @@ buttonPlay.addEventListener('click',function(){
             document.getElementById('contenitore').append(element);
             element.innerHTML = i
 
-            element.addEventListener('click', function(){
+            element.addEventListener('click', function handleclick(){
                 
-                
+                element.removeEventListener('click',handleclick)
                 console.log('punteggio',counter,typeof counter);
                 
                 console.log(this, typeof this);
@@ -76,13 +76,13 @@ buttonPlay.addEventListener('click',function(){
                     
                 }
                 else{
-
+                    
                     counter++
                     this.classList.add('continua');
 
                 }
 
-        });
+            });
         };
 
         document.getElementById('main-container').classList.add('p-3')
